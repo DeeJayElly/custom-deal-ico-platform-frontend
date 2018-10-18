@@ -1,0 +1,8 @@
+[
+  "./node_modules/angular/angular.js",
+  "./node_modules/angular-route/angular-route.js",
+  "./src/*.js",
+  "./src/components/**/*.js",
+  "./src/services/*.js",
+  "./src/assets/js/*.js"
+]
