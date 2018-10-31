@@ -1,0 +1,155 @@
+<nav class="navbar navbar-inverse" ng-controller="NavbarCtrl">
+    <div class="menu-overlay"></div>
+    <div class="container">
+      <div class="navbar-header">
+        <button id="ChangeToggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <div id="navbar-hamburger">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </div>
+          <div id="navbar-close" class="hidden">
+            <img src="assets/img/close.png" class="close-button-navbar"/>
+          </div>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="assets/img/home/logo.png" class="img-responsive" alt="logo"/>
+        </a>
+      </div>
+      <div class="nav-background">
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <div class="user-offers menu-left" ng-if="$root.customDeal.user.type != ''">
+            <p>{{$root.customDeal.nav.pendingTitle}}</p>
+            <span>{{$root.customDeal.user.firstName}}, you have <b>{{$root.customDeal.nav.servicesNum}}</b>.</span>
+            <button ng-click="seeAllServices($root.customDeal.user.type)" class="button-1 pull-left">See All</button>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Home</a>
+            </li>
+  
+            <li ng-click="scrollToSection()" ng-if="$root.customDeal.user.type == 'guest'">
+              <a  href="#home-second-section" target="_self">{{$root.customDeal.nav.serviceActionName}}</a>
+            </li>
+
+            <li ng-click="scrollToSection()" ng-if="$root.customDeal.user.type == 'host'">
+              <a  href="#!/provide-service" target="_self">{{$root.customDeal.nav.serviceActionName}}</a>
+            </li>
+  
+            <li ng-if="$root.customDeal.user.type != ''" ng-class="{active : currentNav === 'profile'}">
+              <a ng-href="#!/profile/me">Profile</a>
+            </li>
+  
+            <li ng-if="$root.customDeal.user.type != ''">
+              <a href="#" ng-click="switchTo($event, $root.customDeal.nav.switchToName);">{{$root.customDeal.nav.switchToTitle}}</a>
+            </li>
+  
+            <li>
+              <a href="#" data-toggle="modal" data-target="#about-us">About Us</a>
+            </li>
+  
+            <li ng-if="$root.customDeal.user.type != ''">
+              <a href="#" data-toggle="modal" data-target="#settings">Settings</a>
+            </li>
+  
+            <li ng-show="!$root.isLoggedIn" id="nav-sign-in" ng-click="showSignInPopup()">
+              <a href="#">Sign In</a>
+            </li>
+            <li ng-show="$root.isLoggedIn"><a href="#" ng-click="logOut()" title="Log out">Log out</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- About us -->
+  <div class="modal fade" id="about-us" tabindex="-1" role="dialog" aria-labelledby="about-us">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="provide-box">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title">About Us</h3>
+            <div class="text">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem labore reprehenderit hic minima quia! Pariatur quia aliquam id voluptatem, magnam voluptate atque expedita nam neque eaque hic at quidem assumenda?</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed alias, quo excepturi, repellendus odio assumenda suscipit! Quidem numquam iusto omnis deleniti velit recusandae eaque ducimus, tempore temporibus quam, at dolores!</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur qui laboriosam doloribus sed. Adipisci, quidem, facere consectetur temporibus tempora voluptates molestiae error. Eaque laudantium molestiae cumque cupiditate cum tempore. Hic.</p>
+            </div>  
+          </div>  
+        </div>
+      </div>
+    </div>  
+  </div>
+  <!-- Settings Modal -->
+  <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="settings" ng-controller="SettingsModalCtrl">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="provide-box">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title">Settings</h3>
+            <ul>
+              <li><a href="#" data-toggle="modal" data-target="#feedback" title="Send Feedback">Send Feedback</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#about-us" title="About">About</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#help" title="Help">Help</a></li>
+              <li><a href="#" ng-click="showSignInPopup()" title="Sign in">Sign in</a></li>
+            </ul>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- Help Modal -->
+  <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="help">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="provide-box">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3 class="modal-title">Hello, how can we help you?</h3>
+              <div class="row">
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                  <input type="text" id="your-name-help" name="your-name-help" class="form-control" placeholder="Name">
+                </div>
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                  <input type="text" id="email-address-help" name="email-address-help" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="col-md-12 col-xs-12">
+                  <textarea name="message-help" id="message-help" cols="5" rows="5" placeholder="How can we help you?"></textarea>
+                </div>
+                <div class="col-md-12 col-xs-12">
+                  <button type="submit" class="btn btn-submit btn-default pull-right" title="Submit">Submit</button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Feedback Modal -->
+  <div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="feedback">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="provide-box">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3 class="modal-title">Give us your thoughts.</h3>
+              <div class="row">
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                  <input type="text" id="your-name-feedback" name="your-name-feedback" class="form-control" placeholder="Name">
+                </div>
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                  <input type="text" id="email-address-feedback" name="email-address-feedback" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="col-md-12 col-xs-12">
+                  <textarea name="message-feedback" id="message-feedback" cols="5" rows="5" placeholder="How can we help you?"></textarea>
+                </div>
+                <div class="col-md-12 col-xs-12">
+                  <button type="submit" class="btn btn-submit btn-default pull-right" title="Submit">Submit</button>
+                </div>
+              </div>
+            </div>
+        </div> 
+      </div>
+    </div>
+  </div>
