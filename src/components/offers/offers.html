@@ -1,0 +1,76 @@
+<div>
+	<div>
+  	<section class="rao-header">
+  		<h1 class="transparent-text">PENDING</h1>
+  	</section>
+	</div>
+
+	<section class="rao">
+		<div class="container">
+			<div ng-click="backHome()" class="offers-button">
+				<img src="assets/img/offers-button.png" />
+				<span>Offers</span>
+			</div>
+
+  		<h4>{{$root.customDeal.user.firstName}}, you have  {{offers.length}} offers.</h4>
+	  	<div class="panel-group" id="accordion">
+	    	<div class="panel panel-default" ng-repeat="offer in offers">
+    			<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" class="collapsed">
+    				<div class="row offer-panel-header">
+	      			<div class="col-lg-5 col-md-12 rao-profile">
+	      				<img ng-src={{offer.userImage}}>
+	      				<div class="rao-profile-info">
+						<h3>{{offer.offerorInfo.firstName}}</h3>
+			          	<p>{{offer.offerorInfo.country}}</p>
+			          	<div class="grade-box">
+			          		<img src="assets/img/home/full-grade.png"/>
+			          		<img src="assets/img/home/full-grade.png"/>
+			          		<img src="assets/img/home/full-grade.png"/>
+			          		<img src="assets/img/home/full-grade.png"/>
+			          		<img src="assets/img/home/one-third-grade.png"/>
+			          	</div>
+			        	</div>
+	      			</div>
+	      			<div class="col-lg-7 col-md-12 rao-profile-text">
+	      				<p>
+	      					<i>
+								{{offer.message}}
+	      					</i>
+	      				</p>
+
+	      				<div class="offers-expand">
+	      					<a href="#!/profile/{{offer.offerrorInfo.uid}}" class="button-4 pull-right">View Profile</a>
+	      					<span class="pull-right">
+	      						<img src="assets/img/gym-icon.png"/>
+	      						<img src="assets/img/store-icon.png"/>
+	      						<img src="assets/img/bag-icon.png"/>
+	      					</span>
+	      				</div>
+	      			</div>
+	      		</div>
+    			</a>
+      		<div id="collapse{{$index}}" class="panel-collapse collapse">
+        		<div class="panel-body">
+					{{offer.message}}
+
+        			<div class="price-box">
+        				Total price: <span>{{offer.price}}</span>
+        			</div>
+
+        			<div class="button-box">
+        				<!-- <button class="button-4">Previous</button> -->
+        				<button id="accept-offer" class="button-6" ng-click="acceptOffer(offer)">Accept Offer</button>
+        				<!-- <button class="button-4">Next</button> -->
+					</div>
+					<div class="button-box">
+        				<!-- <button class="button-4">Previous</button> -->
+        				<button id="reject-offer" class="button-5" ng-click="rejectOffer(offer)">Reject Offer</button>
+        				<!-- <button class="button-4">Next</button> -->
+        			</div>
+        		</div>
+      		</div>
+	    	</div>
+	  	</div>
+		</div>
+	</section>
+</div>
