@@ -1,0 +1,134 @@
+<div>
+    <div>
+        <section class="providing-header">
+            <h1 class="transparent-text">SERVICES</h1>
+        </section>
+      </div>
+  
+      <section class="providing">
+          <div class="container">
+        <div ng-click="backHome()">
+                <div class="offers-button">
+                    <img src="assets/img/offers-button.png" />
+                    <span>Provide</span>
+                </div>
+        </div>
+  
+            <h4>Hi {{$root.customDeal.user.firstName}}! Let’s get started.</h4>
+            <h6>By providing services to our guests you can earn some extra money. </h6>
+            <div class="col-lg-6 col-md-12 bordered">
+                <h5>Accommodation</h5>
+                <img src="assets/img/bead-icon.png" />
+                <button ng-click="showProvideServicePopup()" class="button-5">Continue</button>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h5>Transportation</h5>
+                <img src="assets/img/car-icon.png" />
+                <button ng-click="showProvideTransportationPopup()" class="button-5">Continue</button>
+            </div>
+          </div>
+      </section>
+    <div class="modal fade provide-modal" id="provide-modal1" tabindex="-1" role="dialog" aria-labelledby="provide-modal1">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <i class="fa fa-circle fa-1x" aria-hidden="true"></i>
+                <i class="fa fa-circle fa-1x-o" aria-hidden="true"></i>
+            </div>
+            <div class="modal-body">
+              <h4 class="modal-title" id="provide-4">Name your place.</h4>
+              <input type="text" class="form-control" ng-model="accomodationInfo.serviceName" placeholder="Cosy apartment near park">
+              <h4 class="modal-title" id="provide-4">Select accomodation type.</h4>
+              <select ng-model="accomodationInfo.type" class="form-control" id="sel1">
+                <option value="room">Room</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+              </select>
+              <h4 class="modal-title" id="provide-4">Describe your place.</h4>
+              <textarea name="place-description" ng-model="accomodationInfo.description" class="form-control" id="place-description" cols="5" rows="5" placeholder="Describe the interior, what's near bt, etc..."></textarea>
+              <!-- <button class="button-5">Preview</button> -->
+            </div>
+              <div class="modal-footer">
+            <button ng-click="nextStepAcomodation()" class="button-6 pull-right">Next</button>
+              </div>  
+            </div>
+        </div>
+    </div>
+      <div class="modal fade provide-modal" id="provide-modal2" tabindex="-1" role="dialog" aria-labelledby="provide-modal2">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                    <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
+                        <i class="fa fa-circle fa-1x" aria-hidden="true"></i>
+                        <i class="fa fa-circle fa-1x" aria-hidden="true"></i>
+                   </div>
+                  <div class="modal-body">
+                    <h4 class="modal-title" id="provide-4">Let's put some pictures.</h4>
+                      
+                    <div class="upload-image text-center">
+                        <label class="button-6" for="filesAccomodation">Select multiple files (Up to 8): </label>
+                        <input  id="filesAccomodation" type="file" multiple/>
+                        <output id="resultAccomodation" />
+          
+                    </div>
+                  </div>
+                <div class="modal-footer">
+              <button  ng-click="previousStepAcomodation()" class="button-4 pull-left">Back</button>
+                        <button ng-click="addService('accomodation')" class="button-6 pull-right">Finish</button>
+              </div>	
+            </div>
+          </div>
+    </div>
+    <div class="modal fade provide-modal" id="provide-transportation" tabindex="-1" role="dialog" aria-labelledby="provide-transportation">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <i class="fa fa-circle fa-1x" aria-hidden="true"></i>
+              <i class="fa fa-circle fa-1x-o" aria-hidden="true"></i>
+          </div>
+          <div class="modal-body">
+            <h4 class="modal-title" id="provide-4">Name your transportation.</h4>
+            <input ng-model="transporationInfo.serviceName" type="text" class="form-control" placeholder="Audi A6">
+            <h4 class="modal-title" id="provide-4">Select accomodation type.</h4>
+            <select ng-model="transporationInfo.type" class="form-control" id="sel1">
+              <option value="Coupe">Coupe</option>
+              <option value="Limousine">Limousine</option>
+              <option value="SUV">SUV</option>
+            </select>
+            <h4 class="modal-title" id="provide-4">Describe your Vehicle.</h4>
+            <textarea ng-model="transporationInfo.description" name="place-description" class="form-control" id="place-description" cols="5" rows="5" placeholder="Describe the vehicle, etc..."></textarea>
+            <!-- <button class="button-5">Preview</button> -->
+          </div>
+            <div class="modal-footer">
+          <button ng-click="nextStepTransportation()" class="button-6 pull-right">Next</button>
+            </div>  
+          </div>
+      </div>
+  </div>
+    <div class="modal fade provide-modal" id="provide-transportation2" tabindex="-1" role="dialog" aria-labelledby="provide-transportation2">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                  <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
+                      <i class="fa fa-circle fa-1x" aria-hidden="true"></i>
+                      <i class="fa fa-circle fa-1x" aria-hidden="true"></i>
+                 </div>
+                <div class="modal-body">
+                  <h4 class="modal-title" id="provide-4">Let's put some transportation pictures.</h4>
+                  <div class="upload-image text-center">
+                      <label class="button-6" for="filesTransportation">Select multiple files (Up to 8): </label>
+                      <input id="filesTransportation" type="file" multiple/>
+                      <output id="resultTransportation" />
+                  
+            </div>
+                </div>
+              <div class="modal-footer">
+            <button ng-click="previousStepTransporation()" class="button-4 pull-left">Back</button>
+                      <button  ng-click="addService('transportation')" class="button-6 pull-right">Finish</button>
+            </div>	
+          </div>
+        </div>
+  </div>
+  </div>
