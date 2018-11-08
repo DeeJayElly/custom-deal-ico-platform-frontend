@@ -55,403 +55,433 @@
         </div>
     </div>
     <div uib-carousel active="0" interval="5000">
-    <section class="home-first-section">
-        <h1 class="transparent-text">DIFFERENT</h1>
-        <div class="container">
-            <h2>What makes us</h2>
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="https://www.youtube.com/embed/lPJD4mJB9Lw" frameborder="0" class="embed-responsive-item" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="home-second-section" class="home-second-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2>Where? When?<br/>
-                    Who? What?</h2>
-                    <p>
-                        Imagine your dream vacation.<br/>
-                        Feel like celebrity and create<br/>
-                        <b>Your Own Rider List.</b>
-                    </p>
+        <section class="home-first-section">
+            <h1 class="transparent-text">DIFFERENT</h1>
+            <div class="container">
+                <h2>What makes us</h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="https://www.youtube.com/embed/lPJD4mJB9Lw" frameborder="0"
+                            class="embed-responsive-item" allowfullscreen></iframe>
                 </div>
-                <div class="col-lg-6">
-                    <form class="home-form">
-                        <label class="pull-right">Where?</label>
-                        <div class="input-group one-half">
-                            <select class="form-control pull-left" required="" ng-model="country" ng-change="updateCountry()" >
-                                <option value="" disabled="" selected="selected">Country</option>
-                                <option ng-repeat="country in countries">{{country.countryName}}</option>
-                            </select>
-                            <select class="form-control pull-rigth" required="" ng-model="city" >
-                                <option value="" disabled="" selected="selected">City</option>
-                                <option ng-repeat="city in availableCities">{{city.cityName}}</option>
-                            </select>
-                        </div>
-                        <label class="pull-right">When?</label>
-                        <div class="input-group one-half">
-                            <!-- <input type="text" class="form-control pull-left" placeholder="Check In" aria-describedby="basic-addon2"> -->
-                            <input type="text" ng-model="checkInTime" id="checkInTime" placeholder="Check In" class="form-control float-left" name="from">
-                            <input type="text" ng-model="checkOutTime" id="checkOutTime" placeholder="Check Out" class="form-control float-right" name="to">
-                            
-                            <!-- <p>Date: <input type="text" id="datepicker"></p> -->
+            </div>
+        </section>
 
-                            <!-- <input type="text" class="form-control pull-right" placeholder="Check Out" aria-describedby="basic-addon2"> -->
-                        </div>
-                        <label class="pull-right">Who?</label>
-                        <div class="input-group one-third">
-                            <select ng-model="gender" required class="form-control pull-left">
-                                <option value="" disabled selected>Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                            <div class="midlle-option">
-                                <select ng-model="age" required class="form-control">
-                                    <option value="" disabled selected>Age</option>
-                                    <option value="20-30">20-30</option>
-                                    <option value="30-40">30-40</option>
-                                    <option value="40-50">40-50</option>
-                                    <option value="50-60">50-60</option>
-                                    <option value="60-100">60+</option>
+        <section id="home-second-section" class="home-second-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Where? When?<br/>
+                            Who? What?</h2>
+                        <p>
+                            Imagine your dream vacation.<br/>
+                            Feel like celebrity and create<br/>
+                            <b>Your Own Rider List.</b>
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="home-form">
+                            <label class="pull-right">Where?</label>
+                            <div class="input-group one-half">
+                                <select class="form-control pull-left" required="" ng-model="country"
+                                        ng-change="updateCountry()">
+                                    <option value="" disabled="" selected="selected">Country</option>
+                                    <option ng-repeat="country in countries">{{country.countryName}}</option>
+                                </select>
+                                <select class="form-control pull-rigth" required="" ng-model="city">
+                                    <option value="" disabled="" selected="selected">City</option>
+                                    <option ng-repeat="city in availableCities">{{city.cityName}}</option>
                                 </select>
                             </div>
-                            <select ng-model="selectedLanguage" required class="form-control pull-right">
-                                <option value="" disabled selected>Language</option>
-                                <option ng-value="language" ng-repeat="language in languages">{{language.language}}</option>
-                            </select>
-                            <!-- <select class="form-control pull-left" required="" ng-model="language" >
-                                <option value="" disabled="" selected="selected">Language</option>
-                                <option ng-repeat="language in language">{{language}}</option>
-                            </select> -->
-                        </div>
-                        <label class="pull-right">What?</label>
-                        <div class="input-group">
-                            <textarea ng-model="riderListMessage" class="form-control" placeholder="What your Rider List wants"></textarea>
-                        </div>
-                        <!-- <label class="pull-right">Your interests?</label>
-                        <div class="input-group">
-                            <div class="checkbox">
-                                <label>
-                                    Business
-                                    <div class="image"><img src="assets/img/home/icons/business.png"></div>
-                                    <input style="display: none;" type="checkbox" value="business">
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    Shopping
-                                    <input type="checkbox" value="">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    Sport
-                                    <input type="checkbox" value="">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    Food
-                                    <input type="checkbox" value="">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    Fashion
-                                    <input type="checkbox" value="">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    Health
-                                    <input type="checkbox" value="">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    Art
-                                    <input type="checkbox" value="">
-                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <input type="submit" value="Let's Ride" class="form-control button-3"></textarea>
-                        </div> -->
-                    </form>
-                </div>
-                <div class="col-lg-12">
-                    <form class="home-form interests-form">
-                        <label class="pull-right">Your interests?</label>
-                        <div class="input-group interests-list">
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/business.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="business" value="70c0023f-0208-41c2-9a3f-0c6e2c667ff6">
-                                    Business
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/shopping.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="shopping" value="d2f576ba-32f5-4069-ad1b-93d178ac1d69">
-                                    Shopping
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/sport.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="sport" value="75b4bfc1-4a49-4fcc-a293-57ac5c62f561">
-                                    Sport
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/food.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="food" value="36028f32-f8d0-4416-931d-6f45fdd0f8fc">
-                                    Food
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/fashion.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="fashion" value="bc3310c9-68c5-4b4d-b244-462dc2766a69">
-                                    Fashion
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/health.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="health" value="bdf55598-766a-4954-a419-de213cd4abae">
-                                    Health
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/art.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="art" value="23e125ca-5d8a-47c1-89fe-52ce534d95e2">
-                                    Art
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/cars.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="cars" value="88864a19-b70c-40a8-94de-3165881bfff0">
-                                    Cars
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/environment.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="environment" value="14e822ad-5e91-4c34-a1ec-a852e7ffd69c">
-                                    Environment
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/history.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="history" value="2feb191e-337f-4724-a17e-57744db69582">
-                                    History
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/it.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="it" value="49b35fe2-ce9f-49f5-82c5-4c2c468692d2">
-                                    IT
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/music.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="music" value="c64f64eb-4795-46f3-9481-8f56a3ed662c">
-                                    Music
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/party.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="party" value="4fedb848-8474-42f4-a56f-442c4c750c15">
-                                    Party
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/science.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="science" value="e006f654-bc86-41a5-b5ba-68c835ebf556">
-                                    Science
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="interest-icon"><img src="assets/img/home/icons/travel.png"></div>
-                                    <input class="interest-icon-checkbox" style="display: none;" type="checkbox" name="travel" value="e8489f2e-7384-45a7-9451-9958df50c249">
-                                    Travel
-                                </label>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="time-lapse">
-                            <label>This Rider List will be active</label>
-                            <select ng-model="timePeriod" class="form-control" required="">
-                                <option value="" selected="" disabled="">Choose</option>
-                                <option value="24">24 h</option>
-                                <option value="72">3 days</option>
-                                <option value="144">7 days</option>
-                                <option value="288">14 days</option>
-                            </select>
-                        </div>
-                        <div class="input-group l-ride">
-                            <input type="button" ng-click="letsRide()" value="Let's Ride" class="form-control button-3 letsRideButton">
-                        </div>
-                    </form>
-                </div>
+                            <label class="pull-right">When?</label>
+                            <div class="input-group one-half">
+                                <!-- <input type="text" class="form-control pull-left" placeholder="Check In" aria-describedby="basic-addon2"> -->
+                                <input type="text" ng-model="checkInTime" id="checkInTime" placeholder="Check In"
+                                       class="form-control float-left" name="from">
+                                <input type="text" ng-model="checkOutTime" id="checkOutTime" placeholder="Check Out"
+                                       class="form-control float-right" name="to">
 
+                                <!-- <p>Date: <input type="text" id="datepicker"></p> -->
+
+                                <!-- <input type="text" class="form-control pull-right" placeholder="Check Out" aria-describedby="basic-addon2"> -->
+                            </div>
+                            <label class="pull-right">Who?</label>
+                            <div class="input-group one-third">
+                                <select ng-model="gender" required class="form-control pull-left">
+                                    <option value="" disabled selected>Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <div class="midlle-option">
+                                    <select ng-model="age" required class="form-control">
+                                        <option value="" disabled selected>Age</option>
+                                        <option value="20-30">20-30</option>
+                                        <option value="30-40">30-40</option>
+                                        <option value="40-50">40-50</option>
+                                        <option value="50-60">50-60</option>
+                                        <option value="60-100">60+</option>
+                                    </select>
+                                </div>
+                                <select ng-model="selectedLanguage" required class="form-control pull-right">
+                                    <option value="" disabled selected>Language</option>
+                                    <option ng-value="language" ng-repeat="language in languages">
+                                        {{language.language}}
+                                    </option>
+                                </select>
+                                <!-- <select class="form-control pull-left" required="" ng-model="language" >
+                                    <option value="" disabled="" selected="selected">Language</option>
+                                    <option ng-repeat="language in language">{{language}}</option>
+                                </select> -->
+                            </div>
+                            <label class="pull-right">What?</label>
+                            <div class="input-group">
+                                <textarea ng-model="riderListMessage" class="form-control"
+                                          placeholder="What your Rider List wants"></textarea>
+                            </div>
+                            <!-- <label class="pull-right">Your interests?</label>
+                            <div class="input-group">
+                                <div class="checkbox">
+                                    <label>
+                                        Business
+                                        <div class="image"><img src="assets/img/home/icons/business.png"></div>
+                                        <input style="display: none;" type="checkbox" value="business">
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        Shopping
+                                        <input type="checkbox" value="">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        Sport
+                                        <input type="checkbox" value="">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        Food
+                                        <input type="checkbox" value="">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        Fashion
+                                        <input type="checkbox" value="">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        Health
+                                        <input type="checkbox" value="">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        Art
+                                        <input type="checkbox" value="">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="submit" value="Let's Ride" class="form-control button-3"></textarea>
+                            </div> -->
+                        </form>
+                    </div>
+                    <div class="col-lg-12">
+                        <form class="home-form interests-form">
+                            <label class="pull-right">Your interests?</label>
+                            <div class="input-group interests-list">
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/business.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="business" value="70c0023f-0208-41c2-9a3f-0c6e2c667ff6">
+                                        Business
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/shopping.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="shopping" value="d2f576ba-32f5-4069-ad1b-93d178ac1d69">
+                                        Shopping
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/sport.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="sport" value="75b4bfc1-4a49-4fcc-a293-57ac5c62f561">
+                                        Sport
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/food.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="food" value="36028f32-f8d0-4416-931d-6f45fdd0f8fc">
+                                        Food
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/fashion.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="fashion" value="bc3310c9-68c5-4b4d-b244-462dc2766a69">
+                                        Fashion
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/health.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="health" value="bdf55598-766a-4954-a419-de213cd4abae">
+                                        Health
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/art.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="art" value="23e125ca-5d8a-47c1-89fe-52ce534d95e2">
+                                        Art
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/cars.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="cars" value="88864a19-b70c-40a8-94de-3165881bfff0">
+                                        Cars
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/environment.png">
+                                        </div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="environment" value="14e822ad-5e91-4c34-a1ec-a852e7ffd69c">
+                                        Environment
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/history.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="history" value="2feb191e-337f-4724-a17e-57744db69582">
+                                        History
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/it.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="it" value="49b35fe2-ce9f-49f5-82c5-4c2c468692d2">
+                                        IT
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/music.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="music" value="c64f64eb-4795-46f3-9481-8f56a3ed662c">
+                                        Music
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/party.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="party" value="4fedb848-8474-42f4-a56f-442c4c750c15">
+                                        Party
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/science.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="science" value="e006f654-bc86-41a5-b5ba-68c835ebf556">
+                                        Science
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <div class="interest-icon"><img src="assets/img/home/icons/travel.png"></div>
+                                        <input class="interest-icon-checkbox" style="display: none;" type="checkbox"
+                                               name="travel" value="e8489f2e-7384-45a7-9451-9958df50c249">
+                                        Travel
+                                    </label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="time-lapse">
+                                <label>This Rider List will be active</label>
+                                <select ng-model="timePeriod" class="form-control" required="">
+                                    <option value="" selected="" disabled="">Choose</option>
+                                    <option value="24">24 h</option>
+                                    <option value="72">3 days</option>
+                                    <option value="144">7 days</option>
+                                    <option value="288">14 days</option>
+                                </select>
+                            </div>
+                            <div class="input-group l-ride">
+                                <input type="button" ng-click="letsRide()" value="Let's Ride"
+                                       class="form-control button-3 letsRideButton">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="home-third-section"></section>
+        <section class="home-third-section"></section>
 
-    <section class="home-fourth-section">
-        <h1 class="transparent-text">EXCLUSIVE</h1>
-        <div class="container">
-            <h2>This Fall</h2>
-            <div class="col-lg-1 col-md-1 col-sm-1"></div>
-            <div class="col-lg-5 col-md-5 col-sm-12 city city1">
-                <img src="assets/img/home/turin.jpg" alt="munich" />
-                <h3 class="city-name">TURIN</h3>
-                <img src="assets/img/home/city-overlay.png" alt="munich" class="overlay" />
-                <div class="city-hover">
-                    <h3 class="h-name">TURIN</h3>
-                    <h3 class="h-desc">October Fest<br/>2017</h3>
-                    <a href="assets/example.pdf" target="_blank" class="button-1">View More</a>
-                </div>
-            </div>
-            <div class="col-lg-5 city col-md-5 col-sm-12 city2">
-                <img src="assets/img/home/munich.jpg" alt="turin" />
-                <h3 class="city-name">MUNICH</h3>
-                <img src="assets/img/home/city-overlay.png" alt="munich" class="overlay" />
-                <div class="city-hover">
-                    <h3 class="h-name">MUNICH</h3>
-                    <h3 class="h-desc">October Fest<br/>2017</h3>
-                    <a href="assets/example.pdf" target="_blank" class="button-1">View More</a>
-                </div>
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-1"></div>
-        </div>
-    </section>
-
-    <section class="home-fifth-section">
-        <h1 class="transparent-text">AVAILABLE</h1>
-        <div class="apps">
+        <section class="home-fourth-section">
+            <h1 class="transparent-text">EXCLUSIVE</h1>
             <div class="container">
-                <h2>Soon on Google & App Store</h2>
+                <h2>This Fall</h2>
                 <div class="col-lg-1 col-md-1 col-sm-1"></div>
-                <div class="col-lg-5 col-md-5 col-sm-12">
-                  <img src="assets/img/home/phone1.png" />
+                <div class="col-lg-5 col-md-5 col-sm-12 city city1">
+                    <img src="assets/img/home/turin.jpg" alt="munich"/>
+                    <h3 class="city-name">TURIN</h3>
+                    <img src="assets/img/home/city-overlay.png" alt="munich" class="overlay"/>
+                    <div class="city-hover">
+                        <h3 class="h-name">TURIN</h3>
+                        <h3 class="h-desc">October Fest<br/>2017</h3>
+                        <a href="assets/example.pdf" target="_blank" class="button-1">View More</a>
+                    </div>
                 </div>
-                <div class="col-lg-5 col-md-5 col-sm-12">
-                  <img src="assets/img/home/phone2.png" />
+                <div class="col-lg-5 city col-md-5 col-sm-12 city2">
+                    <img src="assets/img/home/munich.jpg" alt="turin"/>
+                    <h3 class="city-name">MUNICH</h3>
+                    <img src="assets/img/home/city-overlay.png" alt="munich" class="overlay"/>
+                    <div class="city-hover">
+                        <h3 class="h-name">MUNICH</h3>
+                        <h3 class="h-desc">October Fest<br/>2017</h3>
+                        <a href="assets/example.pdf" target="_blank" class="button-1">View More</a>
+                    </div>
                 </div>
                 <div class="col-lg-1 col-md-1 col-sm-1"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="home-sixt-section">
-        <h1 class="transparent-text">ROCKSTAR</h1>
-        <div class="full-width">
-            <div class="container">
-                <h2>Hosts</h2>
-                <!-- <a id="but_prev" href="#">PREV</a> | <a id="but_pause" href="#">PAUSE</a> | <a id="but_start" href="#">START</a> | <a id="but_next" href="#">NEXT</a>  -->
-                <div class="carousel-container">
-
-                  <div id="carousel">
-                    <div class="carousel-feature">
-                      <a href="#/transportation"><img class="carousel-image" alt="Image Caption" src="assets/img/sample1.jpg"></a>
-                      <!-- <div class="carousel-caption">
-                        <p>
-                          This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
-                        </p>
-                      </div> -->
+        <section class="home-fifth-section">
+            <h1 class="transparent-text">AVAILABLE</h1>
+            <div class="apps">
+                <div class="container">
+                    <h2>Soon on Google & App Store</h2>
+                    <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <img src="assets/img/home/phone1.png"/>
                     </div>
-                    <div class="carousel-feature carousel-profile">
-                        <a href="#"><img class="carousel-image" alt="Image Caption" src="assets/img/home/carousel-profile-img.jpg"></a>
-                        <h3>Bertha</h3>
-                        <p>Munich, Germany</p>
-                        <div class="grade-box">
-                            <img src="assets/img/home/full-grade.png"/>
-                            <img src="assets/img/home/full-grade.png"/>
-                            <img src="assets/img/home/full-grade.png"/>
-                            <img src="assets/img/home/full-grade.png"/>
-                            <img src="assets/img/home/one-third-grade.png"/>
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <img src="assets/img/home/phone2.png"/>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-sixt-section">
+            <h1 class="transparent-text">ROCKSTAR</h1>
+            <div class="full-width">
+                <div class="container">
+                    <h2>Hosts</h2>
+                    <!-- <a id="but_prev" href="#">PREV</a> | <a id="but_pause" href="#">PAUSE</a> | <a id="but_start" href="#">START</a> | <a id="but_next" href="#">NEXT</a>  -->
+                    <div class="carousel-container">
+
+                        <div id="carousel">
+                            <div class="carousel-feature">
+                                <a href="#/transportation"><img class="carousel-image" alt="Image Caption"
+                                                                src="assets/img/sample1.jpg"></a>
+                                <!-- <div class="carousel-caption">
+                                  <p>
+                                    This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
+                                  </p>
+                                </div> -->
+                            </div>
+                            <div class="carousel-feature carousel-profile">
+                                <a href="#"><img class="carousel-image" alt="Image Caption"
+                                                 src="assets/img/home/carousel-profile-img.jpg"></a>
+                                <h3>Bertha</h3>
+                                <p>Munich, Germany</p>
+                                <div class="grade-box">
+                                    <img src="assets/img/home/full-grade.png"/>
+                                    <img src="assets/img/home/full-grade.png"/>
+                                    <img src="assets/img/home/full-grade.png"/>
+                                    <img src="assets/img/home/full-grade.png"/>
+                                    <img src="assets/img/home/one-third-grade.png"/>
+                                </div>
+                                <a href="#/profile">
+                                    <button class="button-2">View Profile</button>
+                                </a>
+                            </div>
+                            <div class="carousel-feature">
+                                <a href="#/transportation"><img class="carousel-image" alt="Image Caption"
+                                                                src="assets/img/sample3.jpg"></a>
+                                <!-- <div class="carousel-caption">
+                                  <p>
+                                    Images can be placed here as well.
+                                  </p>
+                                </div> -->
+                            </div>
+                            <div class="carousel-feature">
+                                <a href="#/accomodation"><img class="carousel-image" alt="Image Caption"
+                                                              src="assets/img/sample4.jpg"></a>
+                            </div>
                         </div>
-                        <a href="#/profile">
-                            <button class="button-2">View Profile</button>
-                        </a>    
+
+                        <!-- <div id="carousel-left"><img src="assets/img/arrow-left.png" /></div>
+                        <div id="carousel-right"><img src="assets/img/arrow-right.png" /></div> -->
                     </div>
-                    <div class="carousel-feature">
-                      <a href="#/transportation"><img class="carousel-image" alt="Image Caption" src="assets/img/sample3.jpg"></a>
-                      <!-- <div class="carousel-caption">
-                        <p>
-                          Images can be placed here as well.
+                </div>
+            </div>
+        </section>
+
+        <section class="home-seventh-section">
+            <h1 class="transparent-text">EXPERIENCE</h1>
+            <div class="container">
+                <h2>Travelers</h2>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="traveler-inner">
+                        <img src="assets/img/home/traveler1.png"/>
+                        <h3>Isabela</h3>
+                        <p>Turin, Iataly</p>
+                        <p class="italic">
+                            <i>
+                                Mark was the perfect guest - polite and friendly, and treated my home very respectfully.
+                                He was also very interesting to chat to, and I enjoyed <br/> his company.
+                            </i>
                         </p>
-                      </div> -->
+                        <a href="/#/provide-service">
+                            <button class="button-2">Become Host</button>
+                        </a>
                     </div>
-                    <div class="carousel-feature">
-                        <a href="#/accomodation"><img class="carousel-image" alt="Image Caption" src="assets/img/sample4.jpg"></a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="traveler-inner pull-right">
+                        <img src="assets/img/home/traveler2.png"/>
+                        <h3>Mark</h3>
+                        <p>Berlin, Germany</p>
+                        <p class="italic">
+                            <i>
+                                First experience with Custom Deal and definitely not the last thanks to Isalbel who made
+                                my stay a pleasant one. Always caring on my comfort and wellbeing. Thank you Isabel!
+                            </i>
+                        </p>
+                        <a href="/#/provide-service">
+                            <button class="button-2">Become Host</button>
+                        </a>
                     </div>
-                  </div>
-
-                  <!-- <div id="carousel-left"><img src="assets/img/arrow-left.png" /></div>
-                  <div id="carousel-right"><img src="assets/img/arrow-right.png" /></div> -->
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="home-seventh-section">
-        <h1 class="transparent-text">EXPERIENCE</h1>
-        <div class="container">
-            <h2>Travelers</h2>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="traveler-inner">
-                    <img src="assets/img/home/traveler1.png"/>
-                    <h3>Isabela</h3>
-                    <p>Turin, Iataly</p>
-                    <p class="italic">
-                        <i>
-                        Mark was the perfect guest - polite and friendly, and treated my home very respectfully. He was also very interesting to chat to, and I enjoyed <br/> his company.
-                        </i>
-                    </p>
-                    <a href="/#/provide-service">
-                        <button class="button-2">Become Host</button>
-                    </a>    
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="traveler-inner pull-right">
-                    <img src="assets/img/home/traveler2.png"/>
-                    <h3>Mark</h3>
-                    <p>Berlin, Germany</p>
-                    <p class="italic">
-                        <i>
-                        First experience with Custom Deal and definitely not the last thanks to Isalbel who made my stay a pleasant one. Always caring on my comfort and wellbeing. Thank you Isabel!
-                        </i>
-                    </p>
-                    <a href="/#/provide-service">
-                        <button class="button-2">Become Host</button>
-                    </a>    
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>

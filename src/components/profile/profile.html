@@ -1,174 +1,181 @@
 <div ng-controller="ProfileCtrl">
-	<div>
-  	<section class="profile-header">
-  		<h1 class="transparent-text">PROFILE</h1>
-  	</section>
-	</div>
+    <div>
+        <section class="profile-header">
+            <h1 class="transparent-text">PROFILE</h1>
+        </section>
+    </div>
 
-	<section class="profile">
-		<div class="container">
-			<div class="col-lg-4 col-md-12">
-				<div class="traveler-inner">
-					<img ng-src={{profileImage}}/>
-					<h3>{{profileInfo.firstName}} {{profileInfo.lastName}}</h3>
-		        	<p>{{profileInfo.city}} , {{profileInfo.country}}</p>
-		        	<div class="grade-box">
-		        		<img src="assets/img/home/full-grade.png"/>
-		        		<img src="assets/img/home/full-grade.png"/>
-		        		<img src="assets/img/home/full-grade.png"/>
-		        		<img src="assets/img/home/full-grade.png"/>
-		        		<img src="assets/img/home/one-third-grade.png"/>
-		        	</div>
-		        	<p class="about-p">About me</p>
-		        	<p class="profile-p">
-		        		{{profileInfo.aboutUser}}
-		        	</p>
-					<button ng-if="isMyProfile" data-toggle="modal" data-target="#editProfile" class="button-2">Edit Profile</button>
-					<button ng-if="!isMyProfile" data-toggle="modal" data-target="#addReview" class="button-2">Add Review</button>					
-				</div>
-			</div>
-										
-			<div class="col-lg-8 col-md-12">
-				<div class="row">
-					<div class="col-lg-6">
+    <section class="profile">
+        <div class="container">
+            <div class="col-lg-4 col-md-12">
+                <div class="traveler-inner">
+                    <img ng-src={{profileImage}}/>
+                    <h3>{{profileInfo.firstName}} {{profileInfo.lastName}}</h3>
+                    <p>{{profileInfo.city}} , {{profileInfo.country}}</p>
+                    <div class="grade-box">
+                        <img src="assets/img/home/full-grade.png"/>
+                        <img src="assets/img/home/full-grade.png"/>
+                        <img src="assets/img/home/full-grade.png"/>
+                        <img src="assets/img/home/full-grade.png"/>
+                        <img src="assets/img/home/one-third-grade.png"/>
+                    </div>
+                    <p class="about-p">About me</p>
+                    <p class="profile-p">
+                        {{profileInfo.aboutUser}}
+                    </p>
+                    <button ng-if="isMyProfile" data-toggle="modal" data-target="#editProfile" class="button-2">Edit
+                        Profile
+                    </button>
+                    <button ng-if="!isMyProfile" data-toggle="modal" data-target="#addReview" class="button-2">Add
+                        Review
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-12">
+                <div class="row">
+                    <div class="col-lg-6">
                         <a href="#!/accomodation/{{profileInfo.uid}}">
                             <img src="assets/img/accomodation.jpg" alt="accomodation"/>
                         </a>
-					</div>
-					<div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-6">
                         <a href="#!/transportation/{{profileInfo.uid}}">
-						    <img src="assets/img/transportation.jpg" alt="transportation"/>
+                            <img src="assets/img/transportation.jpg" alt="transportation"/>
                         </a>
-					</div>
-				</div>
-				<div class="col-lg-12 reviews">
-					<p>Reviews</p>
-					<div ng-repeat="review in allReviews" class="col-lg-12 rev">
-						<div class="col-lg-2 reviewer">
-							<a href="#!/profile/{{review.reviewer.uid}}">
-								<img ng-src={{review.reviewer.photoURL}}/>							
-							</a>
-							<p><b>{{review.reviewer.firstName}}</b></p>
-						</div>
-						<div class="col-lg-9">
-							<p class="review-text">
-								<i>
-										{{review.review}}
-								</i>
-							</p>
-							<p class="review-from">
-								from {{review.reviewer.city}}, {{review.reviewer.country}}
-							</p>
-						</div>
-						<div class="col-lg-1">
-							<div class="circle">{{review.valueGrade}}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                    </div>
+                </div>
+                <div class="col-lg-12 reviews">
+                    <p>Reviews</p>
+                    <div ng-repeat="review in allReviews" class="col-lg-12 rev">
+                        <div class="col-lg-2 reviewer">
+                            <a href="#!/profile/{{review.reviewer.uid}}">
+                                <img ng-src={{review.reviewer.photoURL}}/>
+                            </a>
+                            <p><b>{{review.reviewer.firstName}}</b></p>
+                        </div>
+                        <div class="col-lg-9">
+                            <p class="review-text">
+                                <i>
+                                    {{review.review}}
+                                </i>
+                            </p>
+                            <p class="review-from">
+                                from {{review.reviewer.city}}, {{review.reviewer.country}}
+                            </p>
+                        </div>
+                        <div class="col-lg-1">
+                            <div class="circle">{{review.valueGrade}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-	<div class="modal fade in" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfile">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="provide-box">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-						<h3 class="modal-title">Edit Profile</h3>
-						<h4>Photo</h4>
-						<img id="editImg" ng-src={{profileImage}} class="img-responsive"/>
-						<div class="upload-image">
-							<label for="file-upload" class="custom-file-upload">
-								<i class="fa fa-cloud-upload"></i> Select Photo
-							</label>
-							<input id="file-upload" type="file"/>
-							<button class="button-6 align-middle" ng-click="addImage()">Upload Photo</button>
-						</div>
-						<hr>
-						<h4>About Me</h4>
-						<textarea ng-model="profileInfo.aboutUser"></textarea>							<hr>
-						<!-- <h4>Change Password</h4>
-						<label>Old Password</label>
-						<input type="password" name="old-pass">
-						<label>New Password</label>
-						<input type="password" name="new-pass">
-						<label>Confirm New Password</label>
-						<input type="password" name="confirm-pass">
-						<span class="first-span">Your password must contain the following:</span>
-						<span>- At least 8 characters in length (a strong password has at least 14 characters)</span>
-						<span>- At least 1 letter and at least 1 number or symbol</span> -->
-						<button class="button-6 pull-right" ng-click="editUser()">Save</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="modal fade in" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfile">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="provide-box">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">×</span></button>
+                        <h3 class="modal-title">Edit Profile</h3>
+                        <h4>Photo</h4>
+                        <img id="editImg" ng-src={{profileImage}} class="img-responsive"/>
+                        <div class="upload-image">
+                            <label for="file-upload" class="custom-file-upload">
+                                <i class="fa fa-cloud-upload"></i> Select Photo
+                            </label>
+                            <input id="file-upload" type="file"/>
+                            <button class="button-6 align-middle" ng-click="addImage()">Upload Photo</button>
+                        </div>
+                        <hr>
+                        <h4>About Me</h4>
+                        <textarea ng-model="profileInfo.aboutUser"></textarea>
+                        <hr>
+                        <!-- <h4>Change Password</h4>
+                        <label>Old Password</label>
+                        <input type="password" name="old-pass">
+                        <label>New Password</label>
+                        <input type="password" name="new-pass">
+                        <label>Confirm New Password</label>
+                        <input type="password" name="confirm-pass">
+                        <span class="first-span">Your password must contain the following:</span>
+                        <span>- At least 8 characters in length (a strong password has at least 14 characters)</span>
+                        <span>- At least 1 letter and at least 1 number or symbol</span> -->
+                        <button class="button-6 pull-right" ng-click="editUser()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="modal fade in" id="addReview" tabindex="-1" role="dialog" aria-labelledby="addReview">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="provide-box">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-						<h3 class="modal-title">Add Review</h3>
-						<h4>Leave a comment</h4>
-						<textarea ng-model="addReview.review"></textarea>
-						<hr>
-						<h4>Please leave your Marks</h4>
-						<label class="align-left">Accomodation</label>
-						<select class="form-control" ng-model="addReview.accomodationGrade">
-								<option value=1>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
-								<option value=4>4</option>
-								<option value=5>5</option>
-						</select>
-						<label class="align-left">Service</label>
-						<select class="form-control" ng-model="addReview.serviceGrade">
-								<option value=1>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
-								<option value=4>4</option>
-								<option value=5>5</option>
-						</select>
-						<label class="align-left">Transportation</label>
-						<select class="form-control" ng-model="addReview.transportationGrade">
-								<option value=1>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
-								<option value=4>4</option>
-								<option value=5>5</option>
-						</select>
-						<label class="align-left">Accuracy</label>
-						<select class="form-control" ng-model="addReview.accuracyGrade">
-								<option value=1>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
-								<option value=4>4</option>
-								<option value=5>5</option>
-						</select>
-						<label class="align-left">Communication</label>
-						<select class="form-control" ng-model="addReview.communicationGrade">
-								<option value=1>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
-								<option value=4>4</option>
-								<option value=5>5</option>
-						</select>
-						<label class="align-left">Overall</label>
-						<select class="form-control" ng-model="addReview.valueGrade">
-								<option value=1>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
-								<option value=4>4</option>
-								<option value=5>5</option>
-						</select>
-						<button class="button-6 pull-right" ng-click="saveReview()">Save</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="modal fade in" id="addReview" tabindex="-1" role="dialog" aria-labelledby="addReview">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="provide-box">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">×</span></button>
+                        <h3 class="modal-title">Add Review</h3>
+                        <h4>Leave a comment</h4>
+                        <textarea ng-model="addReview.review"></textarea>
+                        <hr>
+                        <h4>Please leave your Marks</h4>
+                        <label class="align-left">Accomodation</label>
+                        <select class="form-control" ng-model="addReview.accomodationGrade">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                        <label class="align-left">Service</label>
+                        <select class="form-control" ng-model="addReview.serviceGrade">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                        <label class="align-left">Transportation</label>
+                        <select class="form-control" ng-model="addReview.transportationGrade">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                        <label class="align-left">Accuracy</label>
+                        <select class="form-control" ng-model="addReview.accuracyGrade">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                        <label class="align-left">Communication</label>
+                        <select class="form-control" ng-model="addReview.communicationGrade">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                        <label class="align-left">Overall</label>
+                        <select class="form-control" ng-model="addReview.valueGrade">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                        <button class="button-6 pull-right" ng-click="saveReview()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

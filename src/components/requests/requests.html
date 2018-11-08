@@ -1,57 +1,58 @@
 <div>
     <div>
-            <section class="rao-header">
-                <h1 class="transparent-text">PENDING</h1>
-            </section>
-      </div>
-  
-      <section class="rao">
-          <div class="container">
-              <div ng-click="backHome()" class="offers-button">
-                  <img src="assets/img/offers-button.png" />
-                  <span>Requests</span>
-              </div>
-                <h4>{{$root.customDeal.user.firstName}}, you have {{requests.length}} requests.</h4>
-                <div class="panel-group" id="accordion">
-                  <div ng-repeat="request in requests" ng-click="offermodal($index)" class="panel panel-default">
-                        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="collapsed">
-                            <div class="col-lg-5 col-md-12 rao-profile request-profile">
-                                <img ng-src={{request.userImage}}/>
-                                <div class="rao-profile-info">
-                                  <h3>{{request.travelerFullName}}</h3>
-                                    <p>{{request.travelerCountry}}</p>
-                                    <div class="grade-box">
-                                        <img src="assets/img/home/full-grade.png"/>
-                                        <img src="assets/img/home/full-grade.png"/>
-                                        <img src="assets/img/home/full-grade.png"/>
-                                        <img src="assets/img/home/full-grade.png"/>
-                                        <img src="assets/img/home/one-third-grade.png"/>
-                                    </div>
-                              </div>
+        <section class="rao-header">
+            <h1 class="transparent-text">PENDING</h1>
+        </section>
+    </div>
+
+    <section class="rao">
+        <div class="container">
+            <div ng-click="backHome()" class="offers-button">
+                <img src="assets/img/offers-button.png"/>
+                <span>Requests</span>
+            </div>
+            <h4>{{$root.customDeal.user.firstName}}, you have {{requests.length}} requests.</h4>
+            <div class="panel-group" id="accordion">
+                <div ng-repeat="request in requests" ng-click="offermodal($index)" class="panel panel-default">
+                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="collapsed">
+                        <div class="col-lg-5 col-md-12 rao-profile request-profile">
+                            <img ng-src={{request.userImage}}/>
+                            <div class="rao-profile-info">
+                                <h3>{{request.travelerFullName}}</h3>
+                                <p>{{request.travelerCountry}}</p>
+                                <div class="grade-box">
+                                    <img src="assets/img/home/full-grade.png"/>
+                                    <img src="assets/img/home/full-grade.png"/>
+                                    <img src="assets/img/home/full-grade.png"/>
+                                    <img src="assets/img/home/full-grade.png"/>
+                                    <img src="assets/img/home/one-third-grade.png"/>
+                                </div>
                             </div>
-                            <div class="col-lg-7 col-md-12 rao-profile-text request-profile">
-                                <p><i>
-                                  {{request.riderListDetails}}
-                                </i></p>
-                            </div>
-                        </a>
-                  </div>
+                        </div>
+                        <div class="col-lg-7 col-md-12 rao-profile-text request-profile">
+                            <p><i>
+                                {{request.riderListDetails}}
+                            </i></p>
+                        </div>
+                    </a>
                 </div>
-          </div>
-      </section>
-  
-    <div ng-repeat="request in requests" class="popup popup1 text-center" id="offermodal{{$index}}" style="display: none;">
+            </div>
+        </div>
+    </section>
+
+    <div ng-repeat="request in requests" class="popup popup1 text-center" id="offermodal{{$index}}"
+         style="display: none;">
         <div class="request">
-          <div class="naw-arrows">
-              <img src="assets/img/nav-arrow-left.png" class="nav-arrow-left">
-              <img src="assets/img/nav-arrow-right.png" class="nav-arrow-right">
-          </div>
-          <img src="assets/img/popup-1-bg.png" alt="" class="note img-responsive">
-          <div class="popup-profile">
-             <div class="image-wrapper">
-                  <img ng-src={{request.userImage}} class="avatar img-responsive">
+            <div class="naw-arrows">
+                <img src="assets/img/nav-arrow-left.png" class="nav-arrow-left">
+                <img src="assets/img/nav-arrow-right.png" class="nav-arrow-right">
+            </div>
+            <img src="assets/img/popup-1-bg.png" alt="" class="note img-responsive">
+            <div class="popup-profile">
+                <div class="image-wrapper">
+                    <img ng-src={{request.userImage}} class="avatar img-responsive">
                 </div>
-             <div class="rao-profile-info">
+                <div class="rao-profile-info">
                     <h3>{{request.travelerFullName}}</h3>
                     <p>{{request.travelerCountry}}</p>
                     <div class="grade-box">
@@ -62,95 +63,102 @@
                         <img src="assets/img/home/one-third-grade.png" class="img-responsive">
                     </div>
                 </div>
-             <div class="v-profile">
-                  <a href="#/profile" title="View Profile">
-                    <a href="#!/profile/{{request.travelerUid}}" class="button-4">View Profile</button>
-                  </a>  
+                <div class="v-profile">
+                    <a href="#/profile" title="View Profile">
+                        <a href="#!/profile/{{request.travelerUid}}" class="button-4">View Profile</button>
+                        </a>
                 </div>
-             <ul class="popup-icons">
-                 <li><img src="assets/img/gym-icon.png" class="img-responsive"></li>
-                 <li><img src="assets/img/store-icon.png" class="img-responsive"></li>
-                 <li><img src="assets/img/bag-icon.png" class="img-responsive"></li>
-             </ul>
-          </div>
-          <div class="popup-1-text">
-            {{request.riderListDetails}}
-            <hr/>
-            <button ng-click="showSendOfferPopup()" class="button-6">Send Offer</button>
-          </div>
+                <ul class="popup-icons">
+                    <li><img src="assets/img/gym-icon.png" class="img-responsive"></li>
+                    <li><img src="assets/img/store-icon.png" class="img-responsive"></li>
+                    <li><img src="assets/img/bag-icon.png" class="img-responsive"></li>
+                </ul>
+            </div>
+            <div class="popup-1-text">
+                {{request.riderListDetails}}
+                <hr/>
+                <button ng-click="showSendOfferPopup()" class="button-6">Send Offer</button>
+            </div>
         </div>
-      <img ng-click="hideRequestPopup()" src="assets/img/close.png" class="close-button"/>
+        <img ng-click="hideRequestPopup()" src="assets/img/close.png" class="close-button"/>
     </div>
-  
+
     <div class="popup popup2" style="display: none;">
-      <div class="container popup-2-bg rao">
-        <div class="row">
-          <div class="panel-group panel-group-request" id="accordion">
-            <div class="panel panel-default">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed">
-                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 rao-profile">
-                      <img ng-src={{selectedOffer.userImage}}/>
-                      <div class="rao-profile-info">
-                        <h3>{{selectedOffer.travelerFullName}}</h3>
-                        <p>{{selectedOffer.travelerCountry}}</p>
-                        <div class="grade-box">
-                          <img src="assets/img/home/full-grade.png"/>
-                          <img src="assets/img/home/full-grade.png"/>
-                          <img src="assets/img/home/full-grade.png"/>
-                          <img src="assets/img/home/full-grade.png"/>
-                          <img src="assets/img/home/one-third-grade.png"/>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 rao-profile-text">
-                      <p><i>
-                        {{selectedOffer.riderListDetails}}
-                      </i></p>
-  
-                      <div>
-                        <a  href="#!/profile/{{selectedOffer.travelerUid}}" class="button-4 pull-right">View Profile</a>
-                        <span class="pull-right">
+        <div class="container popup-2-bg rao">
+            <div class="row">
+                <div class="panel-group panel-group-request" id="accordion">
+                    <div class="panel panel-default">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 rao-profile">
+                                <img ng-src={{selectedOffer.userImage}}/>
+                                <div class="rao-profile-info">
+                                    <h3>{{selectedOffer.travelerFullName}}</h3>
+                                    <p>{{selectedOffer.travelerCountry}}</p>
+                                    <div class="grade-box">
+                                        <img src="assets/img/home/full-grade.png"/>
+                                        <img src="assets/img/home/full-grade.png"/>
+                                        <img src="assets/img/home/full-grade.png"/>
+                                        <img src="assets/img/home/full-grade.png"/>
+                                        <img src="assets/img/home/one-third-grade.png"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 rao-profile-text">
+                                <p><i>
+                                    {{selectedOffer.riderListDetails}}
+                                </i></p>
+
+                                <div>
+                                    <a href="#!/profile/{{selectedOffer.travelerUid}}" class="button-4 pull-right">View
+                                        Profile</a>
+                                    <span class="pull-right">
                           <img src="assets/img/gym-icon.png"/>
                           <img src="assets/img/store-icon.png"/>
                           <img src="assets/img/bag-icon.png"/>
                         </span>
-                      </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Hi Mark,
+                                </p>
+                                <p>
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                                    excepturi sint occaecati sunt.
+                                </p>
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                                    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                                    magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                </p>
+                                <p>
+                                    Looking forward to hear from you.
+                                    Greets,
+                                    I.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </a>
-                <div id="collapse3" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <p>
-                      Hi Mark,
-                    </p>
-                    <p>
-                      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati sunt.
-                    </p>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                    </p>
-                    <p>
-                      Looking forward to hear from you.
-                      Greets,
-                      I.
-                    </p>
-                  </div>
+                </div>
+                <div class="col-lg-12 popup-2-offer">
+                    <p>Make an offer.</p>
+                    <textarea ng-model="offer.message"></textarea>
+                    <div class="price">
+                        <span class="pull-left">Total price:</span>
+                        <input ng-model="offer.price" type="text" class="pull-right"/>
+                        <span class="pull-right">€</span>
+                    </div>
+                    <div class="submit-btn">
+                        <button ng-click="sendOffer()" class="button-6">Submit</button>
+                    </div>
                 </div>
             </div>
-          </div>
-          <div class="col-lg-12 popup-2-offer">
-              <p>Make an offer.</p>
-              <textarea ng-model="offer.message"></textarea>
-              <div class="price">
-                  <span class="pull-left">Total price:</span>
-                  <input ng-model="offer.price" type="text" class="pull-right" />
-                  <span class="pull-right">€</span>
-              </div>
-              <div class="submit-btn">
-                  <button ng-click="sendOffer()" class="button-6">Submit</button>
-              </div>
-          </div>
         </div>
-      </div>
-      <img ng-click="hideSendOfferPopup()" src="assets/img/close.png" class="close-button"/>
+        <img ng-click="hideSendOfferPopup()" src="assets/img/close.png" class="close-button"/>
     </div>
-  </div>
+</div>
