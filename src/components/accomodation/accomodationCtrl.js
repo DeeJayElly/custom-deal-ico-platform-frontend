@@ -1,19 +1,16 @@
 angular.module("customDeal")
-    .service('Map', function ($q) {
-
+    .service('Map', function () {
         this.init = function (location) {
             var options = {
                 center: new google.maps.LatLng(location),
                 zoom: 13,
                 disableDefaultUI: true,
                 image: 'http://wfarm1.dataknet.com/static/resources/icons/set94/be39f3b7.png'
-            }
+            };
             this.map = new google.maps.Map(
                 document.getElementById("map"), options
             );
-
-            //   this.places = new google.maps.places.PlacesService(this.map);
-        }
+        };
 
         this.addMarker = function (res) {
             if (this.marker) this.marker.setMap(null);
@@ -23,14 +20,11 @@ angular.module("customDeal")
                 icon: image
             });
             this.map.setCenter(res.geometry.location);
-        }
+        };
     })
 
-
     .controller("AccomodationCtrl", ["$scope", "$rootScope", "$location", "ProfileService", "$routeParams", "Map", "ATService", function ($scope, $rootScope, $location, ProfileService, $routeParams, Map, ATService) {
-
-        $("#accomodation-carousel").carousel()
-
+        $("#accomodation-carousel").carousel();
         ProfileService.getProfileInfoByID($routeParams.id)
             .then(function (res) {
                 $scope.profileInfo = res.data;
@@ -54,8 +48,7 @@ angular.module("customDeal")
             .catch(function (err) {
                 swal("Error has occured");
                 console.log(err)
-            })
-
+            });
 
         $scope.openGallery = function () {
             lightbox.start($(".example-image-link"))

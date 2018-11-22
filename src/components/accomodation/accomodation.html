@@ -1,7 +1,6 @@
 <div ng-controller="AccomodationCtrl">
     <div class="hidden" ng-repeat="url in accomodationInfo.photoUrlList">
         <a class="example-image-link" href={{url}} data-lightbox="example-set"><img width="100%" class="example-image"
-                                                                                    ng-src={{url}} alt=""/></a>
     </div>
     <div id="accomodation-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
         <img width="100%" ng-click="openGallery()" src="assets/img/accGallery.png"/>
@@ -15,9 +14,6 @@
                     <a href="#overview" aria-controls="overview" target="_self" role="tab"
                        data-toggle="tab">Overview</a>
                 </li>
-                <!-- <li role="presentation">
-                  <a href="#location" aria-controls="location" target="_self" role="tab" data-toggle="tab">Location</a>
-                </li> -->
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -58,8 +54,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h3 class="section-title">Location</h3>
-                    <p class="tab-content">{{profileInfo.city}} , {{profileInfo.country}}</p>
-                    <div id="map"></div>
+                <p class="tab-content">{{profileInfo.city}} , {{profileInfo.country}}</p>
+                <div id="map"></div>
             </div>
         </div>
     </div>
