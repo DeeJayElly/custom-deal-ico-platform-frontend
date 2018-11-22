@@ -1,15 +1,12 @@
 angular.module("customDeal")
     .controller("SignInCtrl", ["$scope", "$rootScope", "AuthService", "GuestHostService", "ProfileService", "$timeout", "InterestsService", "OffersService", function ($scope, $rootScope, AuthService, GuestHostService, ProfileService, $timeout, InterestsService, OffersService) {
-        
         function readURL(input) {
-
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
                     $('#regImg').attr('src', e.target.result);
-                }
-
+                };
                 reader.readAsDataURL(input.files[0]);
             }
         }
@@ -25,7 +22,7 @@ angular.module("customDeal")
             })
             .catch(function (err) {
                 console.log(err)
-            })
+            });
 
         InterestsService.getLanguages()
             .then(function (data) {
@@ -34,7 +31,7 @@ angular.module("customDeal")
             })
             .catch(function (err) {
                 console.log(err)
-            })
+            });
 
         InterestsService.getCountries()
             .then(function (data) {
@@ -43,16 +40,14 @@ angular.module("customDeal")
             })
             .catch(function (err) {
                 console.log(err)
-            })
+            });
+
         $scope.updateCountry = function () {
             var selectedCountry = $scope.countries.filter(function (country) {
                 if (country.countryName === $scope.country) {
-
                     return country
-
                 }
             });
-
             $scope.availableCities = selectedCountry[0].cityList;
         };
 
@@ -92,30 +87,28 @@ angular.module("customDeal")
                     $rootScope.customDeal.nav.serviceActionName = "View/Create Rider List";
                     $rootScope.customDeal.nav.switchToName = "host";
                     $rootScope.customDeal.nav.switchToTitle = "Switch To Host";
-
                     $("#sign-in").hide();
-
                 })
                 .catch(function (error) {
                     console.log("ERROR => ", error);
                 });
         }
 
-
         $scope.showSignUpPopup = function () {
             $("#sign-in").hide();
             $("#sign-up").show();
-        }
+        };
 
         $scope.showSignInPopup = function () {
             $("#sign-in").show();
-        }
+        };
 
         $scope.doLogin = function () {
             var data = {
                 email: $scope.email,
                 password: $scope.password
-            }
+            };
+
             AuthService.login(data)
                 .then(function (user) {
                     localStorage.setItem("BearerToken", user.data.token);
@@ -135,11 +128,9 @@ angular.module("customDeal")
                 .catch(function (err) {
                     swal(err.data)
                 });
-
-        }
+        };
 
         $('.single-checkbox').on('change', function (evt) {
-
             $scope.selectedInterests = [];
             $('.interests-container input:checked').each(function () {
                 $scope.selectedInterests.push($(this).val());
@@ -148,7 +139,6 @@ angular.module("customDeal")
                 this.checked = false;
             }
         });
-
 
         $scope.register = function () {
             var file = document.getElementById("register-image-upload").files[0];
@@ -167,66 +157,61 @@ angular.module("customDeal")
                     city: $scope.city,
                     photoBase64: reader.result,
                     interests: $scope.selectedInterests
-
-                }
+                };
 
                 AuthService.register(data)
                     .then(function (response) {
                         console.log(response);
                         $scope.finishStep();
-
                     })
                     .catch(function (err) {
                         console.log(err);
                     })
-
             };
             reader.onerror = function (error) {
                 console.log('Error: ', error);
             };
-
-        }
+        };
 
         $scope.addPhoto = function () {
             $("#add-photo").show();
             $("#sign-up").hide();
-        }
+        };
 
         $scope.confirmNumber = function () {
             $("#add-photo").hide();
             $("#confirm-number").show();
-        }
+        };
 
         $scope.confirmationNumber = function () {
             $("#confirm-number").hide();
             $("#confirmation-number").show();
-        }
+        };
 
         $scope.openInterests = function () {
             $("#confirmation-number").hide();
             $("#add-interests").show();
-        }
+        };
 
         $scope.finishStep = function () {
             $("#welcome").show();
             $("#add-interests").hide();
-        }
+        };
 
         $scope.closeWelcomePopUp = function () {
             $(".signing").hide();
-        }
+        };
 
         $scope.closePopUp = function () {
             $(".signing").hide();
-        }
+        };
 
         $scope.openHelp = function () {
             $("#help").modal();
-        }
+        };
 
         $("#add-interests .interests-container .col-xs-4 input[type='checkbox']").change(function () {
             var selectedIcon = $(this).attr("name");
-
             if (this.checked) {
                 console.log($(this).prev())
                 $(this).prev().find("img").attr("src", "assets/img/home/icons/" + selectedIcon + "-active.png");

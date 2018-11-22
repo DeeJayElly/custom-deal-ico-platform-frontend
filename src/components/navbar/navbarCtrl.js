@@ -1,14 +1,13 @@
 angular.module("customDeal")
     .controller("NavbarCtrl", ["$scope", "GuestHostService", "$rootScope", "$location", "OffersService", function ($scope, GuestHostService, $rootScope, $location, OffersService) {
-
-        $scope.user = false; // kad se loguje bice postavljen user objekat
+        $scope.user = false;
         $scope.userType = "guest";
 
         $scope.showSignInPopup = function () {
             $('.navbar-collapse').removeClass("collapsing");
             $('.navbar-collapse').collapse('hide');
             $("#sign-in").show();
-        }
+        };
 
         function getOfferNumber() {
             OffersService.getRequests()
@@ -17,7 +16,8 @@ angular.module("customDeal")
                 })
                 .catch(function (err) {
                     $scope.requestsNumber = 0;
-                })
+                });
+
             OffersService.getOffers()
                 .then(function (data) {
                     $scope.offersNumber = data.data.length;
@@ -40,16 +40,18 @@ angular.module("customDeal")
         } else {
             $rootScope.isLoggedIn = false;
         }
+
         $scope.logOut = function () {
             localStorage.removeItem("BearerToken");
             window.location.reload();
-        }
+        };
 
         $scope.scrollToSection = function () {
             $('html, body').animate({
                 scrollTop: $("#home-second-section").offset().top
             }, 1000);
-        }
+        };
+
         $scope.seeAllServices = function (type) {
             $('.navbar-collapse').removeClass("collapsing")
             $('.navbar-collapse').collapse('hide');
@@ -58,19 +60,17 @@ angular.module("customDeal")
                 $location.url('offers');
             } else if (type == "host") {
                 $location.url('requests');
-
             }
-        }
+        };
 
         $scope.scrollToSection = function () {
             $('html, body').animate({
                 scrollTop: $("#home-second-section").offset().top
             }, 1000);
-        }
+        };
 
         $scope.switchTo = function ($event, type) {
             $event.preventDefault();
-
             if (type == "host") {
                 $rootScope.customDeal.user.type = "host";
                 $rootScope.customDeal.nav.pandingTitle = "Pending Requests";
@@ -88,7 +88,7 @@ angular.module("customDeal")
                 $rootScope.customDeal.nav.switchToName = "host";
                 $rootScope.customDeal.nav.switchToTitle = "Switch To Host";
             }
-        }
+        };
 
         $(function () {
             $('#myNavbar')

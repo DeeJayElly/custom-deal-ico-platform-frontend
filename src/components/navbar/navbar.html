@@ -29,36 +29,28 @@
                     <li>
                         <a href="/">Home</a>
                     </li>
-
                     <li ng-click="scrollToSection()" ng-if="$root.customDeal.user.type == 'guest'">
                         <a href="#home-second-section" target="_self">{{$root.customDeal.nav.serviceActionName}}</a>
                     </li>
-
                     <li ng-click="scrollToSection()" ng-if="$root.customDeal.user.type == 'host'">
                         <a href="#!/provide-service" target="_self">{{$root.customDeal.nav.serviceActionName}}</a>
                     </li>
-
                     <li ng-if="$root.customDeal.user.type != ''" ng-class="{active : currentNav === 'profile'}">
                         <a ng-href="#!/profile/me">Profile</a>
                     </li>
-
                     <li ng-if="$root.customDeal.user.type != ''">
                         <a href="#" ng-click="switchTo($event, $root.customDeal.nav.switchToName);">{{$root.customDeal.nav.switchToTitle}}</a>
                     </li>
-
                     <li>
                         <a href="#" data-toggle="modal" data-target="#about-us">About Us</a>
                     </li>
-
                     <li ng-if="$root.customDeal.user.type != ''">
                         <a href="#" data-toggle="modal" data-target="#settings">Settings</a>
                     </li>
-
                     <li ng-show="!$root.isLoggedIn" id="nav-sign-in" ng-click="showSignInPopup()">
                         <a href="#">Sign In</a>
                     </li>
                     <li ng-show="$root.isLoggedIn"><a href="#" ng-click="logOut()" title="Log out">Log out</a></li>
-
                 </ul>
             </div>
         </div>

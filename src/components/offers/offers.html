@@ -4,14 +4,12 @@
             <h1 class="transparent-text">PENDING</h1>
         </section>
     </div>
-
     <section class="rao">
         <div class="container">
             <div ng-click="backHome()" class="offers-button">
                 <img src="assets/img/offers-button.png"/>
                 <span>Offers</span>
             </div>
-
             <h4>{{$root.customDeal.user.firstName}}, you have {{offers.length}} offers.</h4>
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default" ng-repeat="offer in offers">
@@ -38,7 +36,6 @@
                                         {{offer.message}}
                                     </i>
                                 </p>
-
                                 <div class="offers-expand">
                                     <a href="#!/profile/{{offer.offerrorInfo.uid}}" class="button-4 pull-right">View
                                         Profile</a>
@@ -54,22 +51,16 @@
                     <div id="collapse{{$index}}" class="panel-collapse collapse">
                         <div class="panel-body">
                             {{offer.message}}
-
                             <div class="price-box">
                                 Total price: <span>{{offer.price}}</span>
                             </div>
-
                             <div class="button-box">
-                                <!-- <button class="button-4">Previous</button> -->
                                 <button id="accept-offer" class="button-6" ng-click="acceptOffer(offer)">Accept Offer
                                 </button>
-                                <!-- <button class="button-4">Next</button> -->
                             </div>
                             <div class="button-box">
-                                <!-- <button class="button-4">Previous</button> -->
                                 <button id="reject-offer" class="button-5" ng-click="rejectOffer(offer)">Reject Offer
                                 </button>
-                                <!-- <button class="button-4">Next</button> -->
                             </div>
                         </div>
                     </div>

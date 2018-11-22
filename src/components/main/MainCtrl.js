@@ -8,12 +8,12 @@ angular.module("customDeal")
             $('.navbar-collapse').collapse('hide');
         });
 
-
         if (localStorage.hasOwnProperty('BearerToken')) {
             $rootScope.isLoggedIn = true;
         } else {
             $rootScope.isLoggedIn = false;
         }
+
         $rootScope.customDeal = {
             user: {
                 type: "",
@@ -30,17 +30,17 @@ angular.module("customDeal")
                 switchToName: "",
                 switchToTitle: ""
             }
-        }
+        };
 
         $scope.showSignInPopup = function () {
             $("#signing-modal1").modal();
-        }
+        };
 
         $scope.scrollToSection = function () {
             $('html, body').animate({
                 scrollTop: $("#home-second-section").offset().top
             }, 1000);
-        }
+        };
 
         $(document).mouseup(function (e) {
             var popup = $(".sign-in-box");
@@ -51,20 +51,17 @@ angular.module("customDeal")
         });
 
         $(document).scroll(function () {
-
             var wintop = $(window).scrollTop();   // Winodw Scroll Positon
-
             if (wintop >= 200) {                  // If page is scrolled more than 200px
                 $('.scroll-to-top').show();         // Show scroll to top button
             } else {
                 $('.scroll-to-top').hide();         // Hide scroll to top button
             }
         });
+
         $('.scroll-to-top').click(function () {  // When arrow is clicked
             $('body, html').animate({
                 scrollTop: 0                       // Scroll to top of body
             }, 600);
         });
-
     }]);
-
