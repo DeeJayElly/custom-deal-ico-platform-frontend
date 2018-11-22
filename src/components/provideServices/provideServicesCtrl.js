@@ -1,44 +1,44 @@
 angular.module("customDeal")
     .controller("ProvideServicesCtrl", ["$scope", "$rootScope", "$location", "ATService", function ($scope, rootScope, $location, ATService) {
-        console.log("relja")
         $scope.accomodationInfo = {};
         $scope.accomodationInfo.photoUrlList = [];
         $scope.transporationInfo = {};
         $scope.transporationInfo.photoUrlList = [];
-
         $scope.backHome = function () {
             $location.url("/");
-        }
+        };
 
         $scope.showProvideServicePopup = function () {
             $("#provide-modal1").modal();
-        }
+        };
 
         $scope.showProvideTransportationPopup = function () {
             $("#provide-transportation").modal();
-        }
+        };
+
         $scope.nextStepAcomodation = function () {
             $("#provide-modal1").modal("hide");
             $("#provide-modal2").modal();
-        }
+        };
+
         $scope.previousStepAcomodation = function () {
             $("#provide-modal2").modal("hide");
             $("#provide-modal1").modal();
-        }
+        };
+
         $scope.nextStepTransportation = function () {
             $("#provide-transportation").modal("hide");
             $("#provide-transportation2").modal();
-        }
+        };
+
         $scope.previousStepTransporation = function () {
             $("#provide-transportation2").modal("hide");
             $("#provide-transportation").modal();
-        }
-
+        };
 
         $scope.addService = function (type) {
             if (type == "accomodation") {
                 $scope.accomodationInfo.userUid = localStorage.getItem("myUid");
-
                 ATService.addAccomodation($scope.accomodationInfo)
                     .then(function (data) {
                         console.log(data);
@@ -51,7 +51,6 @@ angular.module("customDeal")
                     })
             } else {
                 $scope.transporationInfo.userUid = localStorage.getItem("myUid");
-
                 ATService.addTransportation($scope.transporationInfo)
                     .then(function (data) {
                         console.log(data);
@@ -63,8 +62,7 @@ angular.module("customDeal")
                         swal("Some Error has occured!");
                     })
             }
-        }
-
+        };
 
         function readImage(input, type) {
             var file = document.getElementById(input).files[0];
@@ -75,10 +73,7 @@ angular.module("customDeal")
                     $scope.accomodationInfo.photoUrlList.push(reader.result)
                 } else {
                     $scope.transporationInfo.photoUrlList.push(reader.result)
-
                 }
-
-
             };
             reader.onerror = function (error) {
                 console.log('Error: ', error);
@@ -86,25 +81,20 @@ angular.module("customDeal")
         }
 
         function readURL(input, id) {
-
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     $(id).attr('src', e.target.result);
-                }
-
+                };
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
         function readMultipleImages(id, result) {
-
-            console.log(id)
+            console.log(id);
             var filesInput = document.getElementById(id);
 
             filesInput.addEventListener("change", function (event) {
-                // console.log(event.target.files)
                 var files = event.target.files; //FileList object
                 var output = document.getElementById(result);
                 if (files.length > 8) {
@@ -113,39 +103,28 @@ angular.module("customDeal")
                 } else {
                     for (var i = 0; i < files.length; i++) {
                         var file = files[i];
-
                         //Only pics
                         if (!file.type.match('image'))
                             continue;
-
                         var picReader = new FileReader();
-
                         picReader.addEventListener("load", function (event) {
-
                             var picFile = event.target;
                             if (id == "filesAccomodation") {
                                 $scope.accomodationInfo.photoUrlList.push(picFile.result)
                             } else {
                                 $scope.transporationInfo.photoUrlList.push(picFile.result)
-
                             }
                             var div = document.createElement("div");
-
                             div.innerHTML = "<img class='thumbnailService' src='" + picFile.result + "'" +
                                 "title='" + picFile.name + "'/>";
-
                             output.insertBefore(div, null);
-
                         });
-
                         //Read the image
                         picReader.readAsDataURL(file);
                     }
                 }
-
-
             });
-        };
+        }
 
         readMultipleImages("filesAccomodation", "resultAccomodation");
         readMultipleImages("filesTransportation", "resultTransportation");
@@ -185,7 +164,6 @@ angular.module("customDeal")
         });
 
         /* Providing services quantity plus / minus */
-
         jQuery(document).ready(function () {
             // This button will increment the value
             $('.qtyplus').click(function (e) {
@@ -212,6 +190,7 @@ angular.module("customDeal")
 
                 }
             });
+
             // This button will decrement the value till 0
             $(".qtyminus").click(function (e) {
                 // Stop acting like a button
@@ -233,6 +212,5 @@ angular.module("customDeal")
                 }
             });
         });
-
     }]);
 

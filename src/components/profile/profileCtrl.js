@@ -1,9 +1,7 @@
 angular.module("customDeal")
     .controller("ProfileCtrl", ["$scope", "$rootScope", "$location", "ProfileService", "$routeParams", "ReviewService", function ($scope, $rootScope, $location, ProfileService, $routeParams, ReviewService) {
-
-        // $scope.profileId = $routeParams.id;
-        $scope.isMyProfile = $routeParams.id == "me" ? true : false
-        $scope.profileInfo = {}
+        $scope.isMyProfile = $routeParams.id === "me";
+        $scope.profileInfo = {};
 
         $scope.getReviews = function (id) {
             ReviewService.getReviews(id)
@@ -42,44 +40,40 @@ angular.module("customDeal")
                 })
         }
 
-
         $scope.editUser = function () {
             ProfileService.editProfile($scope.profileInfo)
                 .then(function (res) {
-                    console.log(res)
+                    console.log(res);
                     swal("Profil has been edited!");
                     $("#editProfile").modal("hide");
                 })
                 .catch(function (err) {
-                    console.log(err)
+                    console.log(err);
                     swal("Some Error has occured!");
                 })
-        }
+        };
 
         $scope.saveReview = function () {
-            $scope.addReview.userUid = $scope.profileInfo.uid
-            console.log($scope.addReview)
+            $scope.addReview.userUid = $scope.profileInfo.uid;
+            console.log($scope.addReview);
             ReviewService.addReview($scope.addReview)
                 .then(function (res) {
-                    console.log(res)
-                    swal("You have added new review!")
+                    console.log(res);
+                    swal("You have added new review!");
                     $("#addReview").modal("hide");
                 })
                 .catch(function (err) {
                     console.log(err);
                     swal("Some Error has occured!");
                 })
-        }
+        };
 
         function readURL(input) {
-
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     $('#editImg').attr('src', e.target.result);
-                }
-
+                };
                 reader.readAsDataURL(input.files[0]);
             }
         }
@@ -93,25 +87,21 @@ angular.module("customDeal")
             var reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = function () {
-                var data = "'" + reader.result + "'"
-
+                var data = "'" + reader.result + "'";
                 ProfileService.uploadImage(data)
                     .then(function (res) {
                         console.log(res);
-                        swal("You have changed profile image!")
+                        swal("You have changed profile image!");
                         $("#editProfile").modal("hide");
-
                     })
                     .catch(function (err) {
                         console.log(err);
                         swal("Some Error has occured!");
                     })
-
             };
             reader.onerror = function (error) {
                 console.log('Error: ', error);
             };
         }
-
     }]);
 

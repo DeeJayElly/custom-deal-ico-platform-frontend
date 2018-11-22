@@ -4,7 +4,6 @@
             <h1 class="transparent-text">SERVICES</h1>
         </section>
     </div>
-
     <section class="providing">
         <div class="container">
             <div ng-click="backHome()">
@@ -13,7 +12,6 @@
                     <span>Provide</span>
                 </div>
             </div>
-
             <h4>Hi {{$root.customDeal.user.firstName}}! Let’s get started.</h4>
             <h6>By providing services to our guests you can earn some extra money. </h6>
             <div class="col-lg-6 col-md-12 bordered">
@@ -52,7 +50,6 @@
                     <textarea name="place-description" ng-model="accomodationInfo.description" class="form-control"
                               id="place-description" cols="5" rows="5"
                               placeholder="Describe the interior, what's near bt, etc..."></textarea>
-                    <!-- <button class="button-5">Preview</button> -->
                 </div>
                 <div class="modal-footer">
                     <button ng-click="nextStepAcomodation()" class="button-6 pull-right">Next</button>
@@ -111,7 +108,6 @@
                     <textarea ng-model="transporationInfo.description" name="place-description" class="form-control"
                               id="place-description" cols="5" rows="5"
                               placeholder="Describe the vehicle, etc..."></textarea>
-                    <!-- <button class="button-5">Preview</button> -->
                 </div>
                 <div class="modal-footer">
                     <button ng-click="nextStepTransportation()" class="button-6 pull-right">Next</button>
@@ -135,7 +131,6 @@
                         <label class="button-6" for="filesTransportation">Select multiple files (Up to 8): </label>
                         <input id="filesTransportation" type="file" multiple/>
                         <output id="resultTransportation"/>
-
                     </div>
                 </div>
                 <div class="modal-footer">

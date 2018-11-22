@@ -1,8 +1,6 @@
 angular.module("customDeal")
     .controller('TransportationCtrl', ["$scope", "$rootScope", "$location", "ProfileService", "$routeParams", "Map", "ATService", function ($scope, $rootScope, $location, ProfileService, $routeParams, Map, ATService) {
-
-
-        $("#transportation-carousel").carousel()
+        $("#transportation-carousel").carousel();
 
         ProfileService.getProfileInfoByID($routeParams.id)
             .then(function (res) {
@@ -26,9 +24,10 @@ angular.module("customDeal")
             })
             .catch(function (err) {
                 console.log(err)
-            })
+            });
+
         $scope.openGallery = function () {
             lightbox.start($(".example-image-link"))
-        }
+        };
     }]);
 

@@ -4,7 +4,6 @@
             <h1 class="transparent-text">PENDING</h1>
         </section>
     </div>
-
     <section class="rao">
         <div class="container">
             <div ng-click="backHome()" class="offers-button">
@@ -39,7 +38,6 @@
             </div>
         </div>
     </section>
-
     <div ng-repeat="request in requests" class="popup popup1 text-center" id="offermodal{{$index}}"
          style="display: none;">
         <div class="request">
@@ -82,7 +80,6 @@
         </div>
         <img ng-click="hideRequestPopup()" src="assets/img/close.png" class="close-button"/>
     </div>
-
     <div class="popup popup2" style="display: none;">
         <div class="container popup-2-bg rao">
             <div class="row">
@@ -107,7 +104,6 @@
                                 <p><i>
                                     {{selectedOffer.riderListDetails}}
                                 </i></p>
-
                                 <div>
                                     <a href="#!/profile/{{selectedOffer.travelerUid}}" class="button-4 pull-right">View
                                         Profile</a>
